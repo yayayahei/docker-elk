@@ -32,7 +32,7 @@ processors:
       overwrite_keys: false
       add_error_key: true
   - drop_fields:
-      fields: [ "docker", "@metadata","agent","host","input","container","log","message" ]
+      fields: [ "docker", "@metadata","agent","host","input","container","log","message","ecs","stream" ]
 
 
 #monitoring:
@@ -49,10 +49,12 @@ processors:
 output.file:
   path: "/tmp/filebeat"
   filename: filebeat
-  rotate_every_kb: 10000
+  rotate_every_kb: 10240
   number_of_files: 1024
   permissions: 0600
   rotate_on_startup: true
+  codec.json:
+    pretty: true
 
 ## HTTP endpoint for health checking
 ## https://www.elastic.co/guide/en/beats/filebeat/current/http-endpoint.html
