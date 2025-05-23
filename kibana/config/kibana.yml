@@ -8,7 +8,9 @@ elasticsearch.hosts: [ http://elasticsearch:9200 ]
 
 monitoring.ui.container.elasticsearch.enabled: true
 monitoring.ui.container.logstash.enabled: true
-
+monitoring:
+  ui:
+    enabled: true
 ## X-Pack security credentials
 #
 elasticsearch.username: kibana_system
