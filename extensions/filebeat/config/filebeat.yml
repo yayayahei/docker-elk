@@ -28,6 +28,8 @@ filebeat.autodiscover:
                 symlinks: true
                 fingerprint:
                   enabled: true
+              parsers:
+                - container: ~
 
 processors:
 #  - drop_fields:
@@ -36,7 +38,7 @@ processors:
       fields: [ "message" ]
       process_array: false
       max_depth: 2
-      target: ""
+      target: "clog"
       overwrite_keys: false
       add_error_key: true
 #  - drop_fields:
@@ -52,7 +54,19 @@ output.elasticsearch:
   hosts: [ http://elasticsearch:9200 ]
   username: filebeat_internal
   password: ${FILEBEAT_INTERNAL_PASSWORD}
-
+setup:
+  template:
+    enabled: true
+    overwrite: true
+    json:
+      enabled: true
+      name: "filebeat-8.17.4-template-1"
+      data_stream: false
+      path: "filebeat-template.json"
+  ilm:
+    enabled: true
+    policy_file: "lifecycle_policy.json"
+    overwrite: true
 
 ## HTTP endpoint for health checking
 ## https://www.elastic.co/guide/en/beats/filebeat/current/http-endpoint.html

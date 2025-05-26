@@ -16,6 +16,8 @@ services:
       - --strict.perms=false
     volumes:
       - ./extensions/filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro,Z
+      - ./extensions/filebeat/config/filebeat-template.json:/usr/share/filebeat/filebeat-template.json:ro,Z
+      - ./extensions/filebeat/config/lifecycle_policy.json:/usr/share/filebeat/lifecycle_policy.json:ro,Z
       - type: bind
         source: /var/lib/docker/containers
         target: /var/lib/docker/containers
