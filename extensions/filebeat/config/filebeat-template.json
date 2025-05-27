@@ -36338,6 +36338,7 @@
     {
       "index":
       {
+        "number_of_replicas": 0,
         "lifecycle":
         {
           "name": "filebeat"
