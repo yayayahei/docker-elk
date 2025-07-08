@@ -81,6 +81,12 @@ services:
     environment:
       LS_JAVA_OPTS: -Xms256m -Xmx256m
       LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
+      LOG_EMAIL_TO: ${LOG_EMAIL_TO:-}
+      LOG_EMAIL_FROM: ${LOG_EMAIL_FROM:-}
+      LOG_EMAIL_HOST: ${LOG_EMAIL_HOST:-}
+      LOG_EMAIL_PORT: ${LOG_EMAIL_PORT:-}
+      LOG_EMAIL_USERNAME: ${LOG_EMAIL_USERNAME:-}
+      LOG_EMAIL_PASSWORD: ${LOG_EMAIL_PASSWORD:-}
     networks:
       - elk
     depends_on:
