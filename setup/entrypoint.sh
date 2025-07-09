@@ -117,3 +117,6 @@ for user in "${!users_passwords[@]}"; do
 		create_user "$user" "${users_passwords[$user]}" "${users_roles[$user]}"
 	fi
 done
+
+/init.sh
+
